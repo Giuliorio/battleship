@@ -1,24 +1,32 @@
 class Ship {
-  #length = 0;
+  #size;
   #hits = 0;
-  constructor(length = 0) {
-    this.#length = length;
+  constructor(size = 2) {
+    if (size <= 0) {
+      throw new Error("Invalid ship size");
+    }
+
+    this.#size = size;
   }
 
-  get length() {
-    return this.#length;
+  get size() {
+    return this.#size;
   }
 
   get hits() {
     return this.#hits;
   }
 
-  hit() {
+  onHit() {
+    if (this.isSunk()) {
+      throw new Error("Cannot hit any more after ship has sunk");
+    }
+
     this.#hits += 1;
   }
 
   isSunk() {
-    return this.#hits === this.#length ? true : false;
+    return this.#hits === this.#size ? true : false;
   }
 }
 

@@ -1,6 +1,6 @@
 /* global describe, test, expect, beforeEach, jest */
 
-import Gameboard from "./gameboard";
+import Gameboard from "./Gameboard";
 
 describe("Board initialization", () => {
   test("Board of size 10", () => {
